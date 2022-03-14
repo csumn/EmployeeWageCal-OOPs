@@ -4,22 +4,35 @@ public class EmployeeWage {
 	static final int IS_FULL_TIME=1;
 	static final int IS_PART_TIME=2;
 
-	static void dailyWage(int wagePerHour, int fullTimeEmpHrs, int partTimeEmpHrs) {
+	int checkAttendance(int i) {
 		int value = (int)Math.floor(Math.random()*10) % 3;
-		int empWage=0;
 		switch(value) {
 		case IS_FULL_TIME:{
-			empWage = wagePerHour * fullTimeEmpHrs; 
-			System.out.println("Employee is Present Full Day and Wage is : " +empWage);
+			System.out.println("Employee is Present Full Time");
 			break;
 		}
 		case IS_PART_TIME:{
-			empWage = wagePerHour * partTimeEmpHrs;
-			System.out.println("Employee is Present Half Day and Wage is : " +empWage);
+			System.out.println("Employee is Present Part Time");
 			break;
 		}
-		default: 
-			System.out.println("Employee is Absent today, as the reason today's wage is : "+empWage);
+		default: System.out.println("Employee is Absent ....");
+		}
+		return value;
+	}
+
+	static int monthlyWage(int i,int attendance, int wagePerHour, int fullTimeEmpHrs, int partTimeEmpHrs) {
+		switch(attendance) {
+		case 1:
+			int empWage = wagePerHour * fullTimeEmpHrs; 
+			System.out.println("Wage is : " +empWage);
+			return empWage;
+		case 2:
+			empWage = wagePerHour * partTimeEmpHrs;	
+			System.out.println("Wage is : " +empWage);
+			return empWage;
+		default:
+			System.out.println("No Wage as Employee is absent..... ");
+			return 0;
 		}
 	}
 }
