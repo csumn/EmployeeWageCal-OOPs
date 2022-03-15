@@ -47,3 +47,4 @@ public class EmployeeWage {
 		}
 		System.out.println("Total Wage of the Employee in a Month is : " +total_Employee_Wage);
 	}
+}
