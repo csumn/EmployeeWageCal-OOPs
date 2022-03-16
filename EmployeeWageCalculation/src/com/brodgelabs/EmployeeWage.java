@@ -57,5 +57,6 @@ public class EmployeeWage {
 	void display() {
 		System.out.println("");
 		System.out.println("Total wage of " +companyName+ " employee is " + totalWage + "\n");
+		System.out.println( " ");
 	}
 }
