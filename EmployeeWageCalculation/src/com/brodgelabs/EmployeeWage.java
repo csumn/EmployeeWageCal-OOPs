@@ -2,7 +2,7 @@ package com.brodgelabs;
 
 public class EmployeeWage {
 
-  static final int WAGE_PER_HOUR_IS = 20;
+	static final int WAGE_PER_HOUR_IS = 20;
 	static final int IS_FULL_TIME = 1;
 	static final int IS_PART_TIME = 2;
 	static final int MAX_WORKING_DAYS = 20;
