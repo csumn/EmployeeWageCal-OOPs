@@ -11,7 +11,7 @@ public class EmployeeWage {
 
 		System.out.println( companyName + " employee details");
 		System.out.println(" ");
-		System.out.println("Day		Workinghrs	Wage		Total Working Hrs \n ");
+		System.out.println("Day		Workinghrs	Wage		Total Working Hrs\n ");
 
 		for (int day = 1, totalWorkingHrs = 0; day <= maxWorkingDays && totalWorkingHrs <= maxWorkingHrs; day++, totalWorkingHrs += workingHrs)
 		{
