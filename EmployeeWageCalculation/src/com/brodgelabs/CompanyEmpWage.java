@@ -1,6 +1,6 @@
 package com.brodgelabs;
 
-public class CompanyEmpWage {
+class CompanyEmpWage{
 	String companyName;
 	int wagePerHr;
 	int maxWorkingDays;
