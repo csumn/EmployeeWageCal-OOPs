@@ -1,22 +1,23 @@
 package com.brodgelabs;
 
+import java.util.ArrayList;
+
 class EmployeeWage implements EmpWage{
 
 	static final int IS_FULL_TIME = 1;
 	static final int IS_PART_TIME = 2;
-	int noOfCompanies, index;
-	CompanyEmpWage[] companies;
 
-	public EmployeeWage(int noOfCompanies)
+	ArrayList<CompanyEmpWage> companies;
+
+	public EmployeeWage()
 	{
-		this.noOfCompanies = noOfCompanies;
-		companies = new CompanyEmpWage[noOfCompanies];
-		index = 0;
+		companies = new ArrayList<>();
 	}
 
 	public void addCompany(String companyName, int wagePerHr, int maxWorkingDays, int maxWorkingHrs)
 	{
-		companies[index++] = new CompanyEmpWage(companyName, wagePerHr, maxWorkingDays, maxWorkingHrs);
+		CompanyEmpWage companyEmpWage = new CompanyEmpWage(companyName, wagePerHr, maxWorkingDays, maxWorkingHrs);
+		companies.add(companyEmpWage);
 	}
 
 	int generateEmployeeType()
