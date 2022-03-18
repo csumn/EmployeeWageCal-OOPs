@@ -10,5 +10,6 @@ public class Main {
 		employeeWageComputation.addCompany("Microsoft ", 280, 28, 200);
 		System.out.println("");
 		employeeWageComputation.calculateTotalWage();
+		employeeWageComputation.displayTotalEmpWages();
 	}
 }
