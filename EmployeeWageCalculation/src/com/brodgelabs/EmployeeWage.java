@@ -4,21 +4,22 @@ public class EmployeeWage {
 
 	static final int IS_FULL_TIME = 1;
 	static final int IS_PART_TIME = 2;
-	String companyName;
-	int wagePerHr;
-	int maxWorkingDays;
-	int maxWorkingHrs;
-	int totalWage = 0;
+	int noOfCompanies, index;
+	CompanyEmpWage[] companies;
 
-	EmployeeWage(String companyName, int wagePerHr, int maxWorkingDays, int maxWorkingHrs)
+	public EmployeeWage(int noOfCompanies)
 	{
-		this.companyName = companyName;
-		this.wagePerHr = wagePerHr;
-		this.maxWorkingDays = maxWorkingDays;
-		this.maxWorkingHrs = maxWorkingHrs;
+		this.noOfCompanies = noOfCompanies;
+		companies = new CompanyEmpWage[noOfCompanies];
+		index = 0;
 	}
 
-	int EmployeeType()
+	void addCompany(String companyName, int wagePerHr, int maxWorkingDays, int maxWorkingHrs)
+	{
+		companies[index++] = new CompanyEmpWage(companyName, wagePerHr, maxWorkingDays, maxWorkingHrs);
+	}
+
+	int generateEmployeeType()
 	{
 		return (int) (Math.random() * 100) % 3;
 	}
@@ -38,24 +39,30 @@ public class EmployeeWage {
 
 	void calculateTotalWage()
 	{
-		System.out.println( companyName + " Employee details");
-		System.out.println(" ");
-
-		System.out.println("Day		Workinghrs	Wage		Total Working Hrs \n ");
-		int workingHrs;
-		for (int day = 1, totalWorkingHrs = 0; day <= maxWorkingDays
-				&& totalWorkingHrs <= maxWorkingHrs; day++, totalWorkingHrs += workingHrs)
+		for (CompanyEmpWage company : companies)
 		{
-			int empType = EmployeeType();
+			int totalWage = calculateTotalWage(company);
+			company.setTotalEmployeeWage(totalWage);
+			System.out.println(company);
+		}
+	}
+
+	int calculateTotalWage(CompanyEmpWage companyEmpWage)
+	{
+		System.out.println("\nComputation of total wage of " + companyEmpWage.companyName + " employee");
+		System.out.println("");
+		System.out.println("Day		Workinghrs	Wage		Total Working Hrs \n ");
+
+		int workingHrs, totalWage = 0;
+		for (int day = 1, totalWorkingHrs = 0; day <= companyEmpWage.maxWorkingDays
+				&& totalWorkingHrs <= companyEmpWage.maxWorkingHrs; day++, totalWorkingHrs += workingHrs)
+		{
+			int empType = generateEmployeeType();
 			workingHrs = getWorkingHrs(empType);
-			int wage = workingHrs * wagePerHr;
+			int wage = workingHrs * companyEmpWage.wagePerHr;
 			totalWage += wage;
 			System.out.println(day+"		" +workingHrs +"		"+wage+"		"+(totalWorkingHrs + workingHrs));
 		}
-
-	}
-	void display() {
-		System.out.println("");
-		System.out.println("Total wage of " +companyName+ " employee is " + totalWage + "\n");
+		return totalWage;
 	}
 }
