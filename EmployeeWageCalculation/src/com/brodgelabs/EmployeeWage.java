@@ -64,6 +64,6 @@ public class EmployeeWage {
 			System.out.println(day+"		" +workingHrs +"		"+wage+"		"+(totalWorkingHrs + workingHrs));
 		}
 		return totalWage;
-  }
+	}
 }
 

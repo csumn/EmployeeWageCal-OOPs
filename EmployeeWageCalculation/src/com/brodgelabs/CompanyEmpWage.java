@@ -25,15 +25,5 @@ public class CompanyEmpWage {
 	public String toString() {
 		return "CompanyEmpWage [companyName = " + companyName + ", totalWage = " + totalWage + "]";
 	}
-
-
-
-
-	//	void display()
-	//	{
-	//		System.out.println( companyName + " Employee details");
-	//		System.out.println("");
-	//		System.out.println("Total wage of " +companyName+ " employee is " + totalWage + "\n");
-	//	}
 }
 
