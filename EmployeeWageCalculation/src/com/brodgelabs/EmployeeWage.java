@@ -1,6 +1,7 @@
 package com.brodgelabs;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 class EmployeeWage implements EmpWage{
 
@@ -8,16 +9,19 @@ class EmployeeWage implements EmpWage{
 	static final int IS_PART_TIME = 2;
 
 	ArrayList<CompanyEmpWage> companies;
+	HashMap<String, Integer> totalEmpWage;
 
 	public EmployeeWage()
 	{
 		companies = new ArrayList<>();
+		totalEmpWage = new HashMap<>();
 	}
 
 	public void addCompany(String companyName, int wagePerHr, int maxWorkingDays, int maxWorkingHrs)
 	{
 		CompanyEmpWage companyEmpWage = new CompanyEmpWage(companyName, wagePerHr, maxWorkingDays, maxWorkingHrs);
 		companies.add(companyEmpWage);
+		totalEmpWage.put(companyName, 0);
 	}
 
 	int generateEmployeeType()
@@ -64,7 +68,15 @@ class EmployeeWage implements EmpWage{
 			totalWage += wage;
 			System.out.println(day+"		" +workingHrs +"		"+wage+"		"+(totalWorkingHrs + workingHrs));
 		}
+		totalEmpWage.put(companyEmpWage.companyName, totalWage);
 		return totalWage;
+	}
+
+	void displayTotalEmpWages() {
+		System.out.println("\nCompany and total Emp Wage are as follows : \n");
+		for (String companyName : totalEmpWage.keySet()) {
+			System.out.println(companyName+ " ---> " + totalEmpWage.get(companyName));
+		}
 	}
 }
 
