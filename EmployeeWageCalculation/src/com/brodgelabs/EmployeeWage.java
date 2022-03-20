@@ -78,5 +78,11 @@ class EmployeeWage implements EmpWage{
 			System.out.println(companyName+ " ---> " + totalEmpWage.get(companyName));
 		}
 	}
+	public Integer getCompanyEmpWage(String companyName) {
+		if (totalEmpWage.containsKey(companyName))
+			return totalEmpWage.get(companyName);
+
+		return null;
+	}
 }
 
