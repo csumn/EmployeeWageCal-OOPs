@@ -2,9 +2,9 @@ package com.brodgelabs;
 
 class CompanyEmpWage{
 	String companyName;
-	int wagePerHr;
-	int maxWorkingDays;
-	int maxWorkingHrs;
+	final int wagePerHr;
+	final int maxWorkingDays;
+	final int maxWorkingHrs;
 	int totalWage;
 
 	CompanyEmpWage(String companyName, int wagePerHr, int maxWorkingDays, int maxWorkingHrs)
